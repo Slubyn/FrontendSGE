@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import '../styles.css';
 import gameboyImage from '../assets/gameboyInicio.jpg'; // Ruta de la imagen de la Gameboy
