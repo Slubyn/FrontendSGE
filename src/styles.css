@@ -1,0 +1,116 @@
+/* Asegurar que el body ocupa toda la pantalla */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa; /* Color de fondo claro para mayor contraste */
+  }
+  
+  /* Asegurar que el contenido principal ocupe todo el espacio disponible */
+  #root {
+    flex: 1;
+  }
+  
+  /* Mejorar apariencia del header */
+  .header-custom {
+    background: linear-gradient(90deg, #6a5acd, #9370db); /* Tonos inspirados en la mascota */
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilizar el footer para que quede fijo abajo */
+  .footer-custom {
+    background: linear-gradient(90deg, #6a5acd, #9370db);
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  /* Estilos para la tarjeta de login */
+  .login-card {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Imagen de la mascota en el login */
+  .mascot-img {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px;
+  }
+
+  /* Botones con estilo más amigable */
+  .btn-primary {
+    background-color: #9370db;
+    border: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #6a5acd;
+  }
+
+  /* Inputs con bordes más suaves */
+  .form-control {
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+  }
+  
+  .form-control:focus {
+    border-color: #9370db;
+    box-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
+  }
+
+  /* Estilos para el loader de la Gameboy */
+.gameboy-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a2e; /* Fondo oscuro para resaltar */
+}
+
+.gameboy-container {
+    position: relative;
+    width: 600px; /* Ajusta según el tamaño de la imagen */
+    max-width: 90%;
+    height: auto;
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+/* Ajustar la imagen dentro de la Gameboy */
+.gameboy-image {
+    width: 100%;
+    height: auto;
+}
+
+.gameboy-screen {
+    position: absolute;
+    top: 26%;
+    left: -10%;
+    width: 60%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: screenGlitch 2s linear infinite alternate;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes screenGlitch {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; filter: brightness(1.2); }
+    100% { opacity: 0.8; }
+}
