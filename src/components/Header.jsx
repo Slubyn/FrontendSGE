@@ -13,10 +13,20 @@ const Header = () => {
     setUsername(storedUser);
   }, []);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    if (!window.confirm("¿Seguro que deseas cerrar sesión?")) return;
+    
+    try {
+      await fetch('http://localhost:8080/api/usuarios/logout', { method: 'POST', credentials: 'include' });
+    } catch (error) {
+      console.error("Error al cerrar sesión", error);
+    }
+    
     localStorage.removeItem('username');
+    localStorage.removeItem('userId');
     navigate('/');
   };
+
 
   return (
     <Navbar bg="primary" variant="dark" expand="lg" className="mb-4 shadow-lg rounded header-custom">

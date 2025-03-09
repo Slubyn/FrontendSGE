@@ -13,6 +13,7 @@ import Diary from './pages/Diary';
 import Rewards from './pages/Rewards';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Profile from './pages/Profile';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
             <Route path="/empatia" element={<Empatia />} />
             <Route path="/diary" element={<Diary />} />
             <Route path="/rewards" element={<Rewards />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
           <Footer />
         </>
