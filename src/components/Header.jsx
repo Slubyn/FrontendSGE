@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { FaUserCircle } from 'react-icons/fa';
+import { FaUserCircle, FaListAlt } from 'react-icons/fa';
 import '../styles.css'; // Asegurar que los estilos personalizados están cargados
 
 const Header = () => {
@@ -26,13 +26,16 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/dashboard" className="text-white fw-semibold">Inicio</Nav.Link>
-            <Nav.Link href="/emotions" className="text-white fw-semibold">Emociones</Nav.Link>
-            <Nav.Link href="/preguntas" className="text-white fw-semibold">Preguntas</Nav.Link>
-            <Nav.Link href="/recompensas" className="text-white fw-semibold">Recompensas</Nav.Link>
-            <Nav.Link href="/usuarios" className="text-white fw-semibold">Usuarios</Nav.Link>
             <Nav.Link href="/empatia" className="text-white fw-semibold">Empatía</Nav.Link>
             <Nav.Link href="/diary" className="text-white fw-semibold">Diario</Nav.Link>
             <Nav.Link href="/rewards" className="text-white fw-semibold">Recompensas</Nav.Link>
+            
+            <NavDropdown title={<><FaListAlt className="me-2" />CRUDs</>} id="crud-nav-dropdown" className="text-white">
+              <NavDropdown.Item href="/emotions">Gestión de Emociones</NavDropdown.Item>
+              <NavDropdown.Item href="/preguntas">Gestión de Preguntas</NavDropdown.Item>
+              <NavDropdown.Item href="/recompensas">Gestión de Recompensas</NavDropdown.Item>
+              <NavDropdown.Item href="/usuarios">Gestión de Usuarios</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
           <Nav>
             <NavDropdown title={<><FaUserCircle className="me-2" />{username}</>} id="basic-nav-dropdown" className="text-white">

@@ -16,13 +16,16 @@ import Footer from './components/Footer';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!sessionStorage.getItem('hasLoaded'));
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false); // Oculta el loader después de 3 segundos
-    }, 3000);
-  }, []);
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+        sessionStorage.setItem('hasLoaded', 'true'); // Guarda que el loader ya se mostró
+      }, 3000);
+    }
+  }, [loading]);
 
   return (
     <Router>
@@ -52,7 +55,36 @@ function App() {
 
 export default App;
 
+/*function App() {
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false); // Oculta el loader después de 3 segundos
+    }, 3000);
+  }, []);
+
+
+function App() {
+  const [loading, setLoading] = useState(!sessionStorage.getItem('hasLoaded'));
+
+  useEffect(() => {
+    if (loading) {
+      setTimeout(() => {
+        setLoading(false);
+        sessionStorage.setItem('hasLoaded', 'true'); // Guarda que el loader ya se mostró
+      }, 3000);
+    }
+  }, [loading]);
+
+  return (
+    <Router>
+      {loading ? (
+        <GameboyLoader /> // Muestra el loader solo la primera vez
+      ) : (
+        <>
+          <
+ */
 
 /*    <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
       <Route path="/emotions" element={<PrivateRoute><Emotions /></PrivateRoute>} />
