@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Form, Button, Container, Alert, Card } from 'react-bootstrap';
 import { useNavigate, Link } from 'react-router-dom';
 import '../styles.css';
@@ -10,7 +10,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!username || !password) {
@@ -18,11 +18,24 @@ const Login = () => {
       return;
     }
 
-    if (username === 'admin' && password === '1234') {
-      localStorage.setItem('username', username);
-      navigate('/dashboard');
-    } else {
-      setError('Credenciales incorrectas');
+    try {
+      const res = await fetch('http://localhost/SGE/proyecto/login.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: username, contraseña: password }), // PHP espera 'email' en lugar de 'username'
+      });
+  
+      const data = await res.json();
+  
+      if (data.success) {
+        localStorage.setItem('user', JSON.stringify(data.usuario)); // Guardar usuario en localStorage
+        navigate('/dashboard'); // Redirigir a Dashboard
+      } else {
+        setError(data.error || 'Credenciales incorrectas');
+      }
+    // eslint-disable-next-line no-unused-vars
+    } catch (error) {
+      setError('Error de conexión con el servidor.');
     }
   };
 
@@ -35,10 +48,10 @@ const Login = () => {
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formUsername" className="mb-3">
-              <Form.Label>Nombre de Usuario</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Ingrese su nombre de usuario"
+                placeholder="Ingrese su email"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />

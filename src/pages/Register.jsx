@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Form, Button, Container, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ const Register = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!username || !email || !password || !confirmPassword) {
@@ -23,9 +23,29 @@ const Register = () => {
       return;
     }
 
-    // Simulación de registro (luego se hará la llamada al backend PHP)
-    localStorage.setItem('username', username);
-    navigate('/dashboard');
+    try {
+      const res = await fetch('http://localhost/SGE/proyecto/registro.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre_usuario: username,
+          email: email,
+          contraseña: password,
+          rol: 'usuario' // Por defecto, los nuevos usuarios son "usuario"
+        }),
+      });
+  
+      const data = await res.json();
+  
+      if (data.success) {
+        navigate('/dashboard'); // Redirigir a Dashboard después de registrarse
+      } else {
+        setError(data.error || 'Error en el registro.');
+      }
+    // eslint-disable-next-line no-unused-vars
+    } catch (error) {
+      setError('Error de conexión con el servidor.');
+    }
   };
 
   return (
