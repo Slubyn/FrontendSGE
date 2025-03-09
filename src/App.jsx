@@ -8,9 +8,10 @@ import EmotionsCRUD from './pages/EmotionsCRUD'; // CRUD
 import PreguntasJuegoCRUD from './pages/PreguntasJuegoCRUD'; // CRUD
 import RecompensasCRUD from './pages/RecompensasCRUD'; // CRUD
 import UsuariosCRUD from './pages/UsuariosCRUD'; // CRUD
+import OpcionesJuegoCRUD from './pages/OpcionesJuegoCRUD'; // CRUD
 import Empatia from './pages/Empatia';  // JUEGO
-import Diary from './pages/Diary';  
 import Rewards from './pages/Rewards';
+//import AdviceAPI from './pages/AdviceAPI';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Profile from './pages/Profile';
@@ -43,8 +44,8 @@ function App() {
             <Route path="/preguntas" element={<PreguntasJuegoCRUD />} />
             <Route path="/recompensas" element={<RecompensasCRUD />} />
             <Route path="/usuarios" element={<UsuariosCRUD />} />
+            <Route path="/opciones" element={<OpcionesJuegoCRUD />} />
             <Route path="/empatia" element={<Empatia />} />
-            <Route path="/diary" element={<Diary />} />
             <Route path="/rewards" element={<Rewards />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>

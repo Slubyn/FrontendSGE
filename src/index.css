@@ -24,10 +24,12 @@ a:hover {
 
 body {
   margin: 0;
-  min-width: 100vw;
+  /* El ancho mínimo es opcional, quítalo si no lo necesitas */
   min-height: 100vh;
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
+
 
 h1 {
   font-size: 3.2em;

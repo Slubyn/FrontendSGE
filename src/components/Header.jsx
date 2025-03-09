@@ -37,12 +37,12 @@ const Header = () => {
           <Nav className="me-auto">
             <Nav.Link href="/dashboard" className="text-white fw-semibold">Inicio</Nav.Link>
             <Nav.Link href="/empatia" className="text-white fw-semibold">Empatía</Nav.Link>
-            <Nav.Link href="/diary" className="text-white fw-semibold">Diario</Nav.Link>
             <Nav.Link href="/rewards" className="text-white fw-semibold">Recompensas</Nav.Link>
             
             <NavDropdown title={<><FaListAlt className="me-2" />CRUDs</>} id="crud-nav-dropdown" className="text-white">
               <NavDropdown.Item href="/emotions">Gestión de Emociones</NavDropdown.Item>
               <NavDropdown.Item href="/preguntas">Gestión de Preguntas</NavDropdown.Item>
+              <NavDropdown.Item href="/opciones">Gestión de Opciones</NavDropdown.Item>
               <NavDropdown.Item href="/recompensas">Gestión de Recompensas</NavDropdown.Item>
               <NavDropdown.Item href="/usuarios">Gestión de Usuarios</NavDropdown.Item>
             </NavDropdown>

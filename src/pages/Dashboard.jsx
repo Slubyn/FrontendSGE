@@ -1,46 +1,40 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FaGamepad, FaAward, FaLightbulb } from 'react-icons/fa';
 
 const Dashboard = () => {
   return (
     <Container className="mt-5">
-      <h2 className="text-center mb-4">Bienvenido a EmoKids</h2>
-      <Row className="g-4">
-
+      <h2 className="text-center mb-5 fw-bold text-purple-custom">Bienvenido a Kimochi</h2>
+      <Row className="g-4 justify-content-center">
         <Col md={4}>
-          <Card>
+          <Card className="text-center shadow-lg border-0 p-4">
             <Card.Body>
-              <Card.Title>Gestión de Emociones</Card.Title>
-              <Card.Text>Identifica y administra tus emociones de manera sencilla.</Card.Text>
-              <Link to="/emotions" className="btn btn-primary">Ir a Emociones</Link>
+              <FaGamepad size={50} className="text-purple-custom mb-3" />
+              <Card.Title className="fw-bold">Juego de Empatía</Card.Title>
+              <Card.Text>Responde a diferentes situaciones emocionales.</Card.Text>
+              <Link to="/empatia" className="btn btn-purple-custom text-white">Jugar</Link>
             </Card.Body>
           </Card>
         </Col>
         <Col md={4}>
-          <Card>
+          <Card className="text-center shadow-lg border-0 p-4">
             <Card.Body>
-              <Card.Title>Juego de Empatía</Card.Title>
-              <Card.Text>Aprende a responder a diferentes situaciones emocionales.</Card.Text>
-              <Link to="/empatia" className="btn btn-primary">Jugar</Link>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4}>
-          <Card>
-            <Card.Body>
-              <Card.Title>Diario Emocional</Card.Title>
-              <Card.Text>Registra tus emociones y reflexiona sobre ellas.</Card.Text>
-              <Link to="/diary" className="btn btn-primary">Ir al Diario</Link>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4}>
-          <Card>
-            <Card.Body>
-              <Card.Title>Recompensas</Card.Title>
+              <FaAward size={50} className="text-purple-custom mb-3" />
+              <Card.Title className="fw-bold">Recompensas</Card.Title>
               <Card.Text>Gana insignias y recompensas por tu progreso.</Card.Text>
-              <Link to="/rewards" className="btn btn-primary">Ver Recompensas</Link>
+              <Link to="/rewards" className="btn btn-purple-custom text-white">Ver Recompensas</Link>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col md={4}>
+          <Card className="text-center shadow-lg border-0 p-4">
+            <Card.Body>
+              <FaLightbulb size={50} className="text-purple-custom mb-3" />
+              <Card.Title className="fw-bold">Consejos Motivacionales</Card.Title>
+              <Card.Text>Obtén un consejo para tu día.</Card.Text>
+              <Link to="/advice" className="btn btn-purple-custom text-white">Ver Consejos</Link>
             </Card.Body>
           </Card>
         </Col>
