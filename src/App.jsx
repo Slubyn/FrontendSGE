@@ -11,7 +11,7 @@ import UsuariosCRUD from './pages/UsuariosCRUD'; // CRUD
 import OpcionesJuegoCRUD from './pages/OpcionesJuegoCRUD'; // CRUD
 import Empatia from './pages/Empatia';  // JUEGO
 import Rewards from './pages/Rewards';
-//import AdviceAPI from './pages/AdviceAPI';
+import AdviceAPI from './pages/AdviceAPI';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Profile from './pages/Profile';
@@ -39,15 +39,16 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/emotions" element={<EmotionsCRUD />} />
-            <Route path="/preguntas" element={<PreguntasJuegoCRUD />} />
-            <Route path="/recompensas" element={<RecompensasCRUD />} />
-            <Route path="/usuarios" element={<UsuariosCRUD />} />
-            <Route path="/opciones" element={<OpcionesJuegoCRUD />} />
-            <Route path="/empatia" element={<Empatia />} />
-            <Route path="/rewards" element={<Rewards />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+            <Route path="/emotions" element={<PrivateRoute><EmotionsCRUD /></PrivateRoute>} />
+            <Route path="/preguntas" element={<PrivateRoute><PreguntasJuegoCRUD /></PrivateRoute>} />
+            <Route path="/recompensas" element={<PrivateRoute><RecompensasCRUD /></PrivateRoute>} />
+            <Route path="/usuarios" element={<PrivateRoute><UsuariosCRUD /></PrivateRoute>} />
+            <Route path="/opciones" element={<PrivateRoute><OpcionesJuegoCRUD /></PrivateRoute>} />
+            <Route path="/advice" element={<PrivateRoute><AdviceAPI /></PrivateRoute>} />
+            <Route path="/empatia" element={<PrivateRoute><Empatia /></PrivateRoute>} />
+            <Route path="/rewards" element={<PrivateRoute><Rewards /></PrivateRoute>} />
+            <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
           </Routes>
           <Footer />
         </>

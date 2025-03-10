@@ -10,6 +10,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -19,7 +20,7 @@ const Login = () => {
     }
 
     try {
-      const res = await fetch('http://localhost/SGE/proyecto/login.php', {
+      const res = await fetch('http://localhost/BackendSGE/BackendPhp/login.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: username, contraseña: password }), // PHP espera 'email' en lugar de 'username'

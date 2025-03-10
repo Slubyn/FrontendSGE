@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaGamepad, FaAward, FaLightbulb } from 'react-icons/fa';
 
 const Dashboard = () => {
+ // 3 contenedores para recibir consejos, el juego y las recompensas
   return (
     <Container className="mt-5">
       <h2 className="text-center mb-5 fw-bold text-purple-custom">Bienvenido a Kimochi</h2>

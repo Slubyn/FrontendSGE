@@ -1,4 +1,4 @@
-// Filename: Header.jsx
+
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -44,11 +44,13 @@ const Header = () => {
     }
 
     localStorage.removeItem('user');
-    // Forzar recarga de la app
+    // forzar recarga de la app
     window.location.href = '/';
     // o navigate('/');
   };
 
+  //contenedores con todas las paginas y los CRUD en un desplegable
+  //otro desplegable al final con el nombre de usuario para poder editar perfil o cerrar sesión
   return (
     <Navbar bg="primary" variant="dark" expand="lg" className="mb-4 shadow-lg rounded header-custom">
       <Container>
@@ -58,7 +60,6 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-
             <Nav.Link href="/dashboard" className="text-white fw-semibold">Inicio</Nav.Link>
             <Nav.Link href="/empatia" className="text-white fw-semibold">Empatía</Nav.Link>
             <Nav.Link href="/rewards" className="text-white fw-semibold">Recompensas</Nav.Link>

@@ -24,7 +24,7 @@ const Register = () => {
     }
 
     try {
-      const res = await fetch('http://localhost/SGE/proyecto/registro.php', {
+      const res = await fetch('http://localhost/BackendSGE/BackendPhp/registro.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

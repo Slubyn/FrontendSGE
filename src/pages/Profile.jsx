@@ -40,7 +40,7 @@ const Profile = () => {
   const fetchUserData = async (uId) => {
     try {
       const response = await fetch(
-        `http://localhost/SGE/proyecto/obtenerPerfil.php?id_usuario=${uId}`
+        `http://localhost/BackendSGE/BackendPhp/.php?id_usuario=${uId}`
       );
       if (!response.ok) throw new Error('Error al obtener datos del usuario');
       const data = await response.json();
@@ -79,7 +79,7 @@ const Profile = () => {
     if (newPassword) bodyData.nuevaContrasena = newPassword;
 
     try {
-      const response = await fetch('http://localhost/SGE/proyecto/actualizarPerfil.php', {
+      const response = await fetch('http://localhost/BackendSGE/BackendPhp/actualizarPerfil.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bodyData)
